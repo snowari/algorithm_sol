@@ -1,14 +1,14 @@
-
 const dailyTemperatures = (temperatures) => {
-    const ans = Array(temperatures.length).fill(0)
-    const stack = []
+    const ans = new Array(temperatures.length).fill(0);
+    const stack = [];
 
-    for(const [day, temp] of temperatures.entries()){
-        while(stack.length && stack.at(-1).temp < temp){
-            const {day : prev_day} = stack.pop()
-            ans[prev_day] = day - prev_day
+    for (const [i, temp] of temperatures.entries()) {
+        while (stack.length && temp > temperatures[stack.at(-1)]) {
+            const idx = stack.pop();
+            ans[idx] = i - idx;
         }
-        stack.push({day, temp})
+        stack.push(i);
     }
-    return ans
+
+    return ans;
 };
