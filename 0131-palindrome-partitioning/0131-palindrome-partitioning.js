@@ -4,6 +4,18 @@
  */
 var partition = function(s) {
     const answer = []
+
+    const isPalindrome = (s) => {
+        let left = 0, right = s.length-1
+        while(left<right){
+            if(s[left]!= s[right]){
+                return false
+            }
+            left ++
+            right --
+        }
+        return true
+    }
     
     
     const dfs = (start , current) => {
@@ -14,7 +26,7 @@ var partition = function(s) {
 
         for(let end = start + 1 ; end <= s.length ; end++){
             const sub = s.slice(start, end)
-            if ( sub === sub.split('').reverse().join('')){
+            if ( isPalindrome(sub)){
                 current.push(sub)
                 dfs(end, current)
                 current.pop()
