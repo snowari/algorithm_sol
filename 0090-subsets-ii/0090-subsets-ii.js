@@ -4,26 +4,26 @@
  */
 var subsetsWithDup = function(nums) {
     const n = nums.length
-    const keys = new Set()
     const answer = []
+    
     nums = nums.sort((a,b)=> a-b)
 
-    for(let mask =0 ; mask < (1 << n) ; mask ++){
-    
+    const backtracking = (start, currentSubset)=>{
+        answer.push([...currentSubset])
+        
 
-        const subset = []
-        for(let i=0; i<n; i++){
-            if(mask & (1<<i) ){
-                subset.push(nums[i])
+        for(let i=start; i<n; i++){
+            if( i > start && nums[i] === nums[i-1] ) {
+                continue
             }
-        }
 
-        const key = subset.join(',')
-        if(!keys.has(key)){
-            keys.add(key)
-            answer.push(subset)
+            currentSubset.push(nums[i])
+            backtracking(i+1, currentSubset)
+            currentSubset.pop()
         }
     }
+    
+    backtracking(0, [])
 
     return answer
 
