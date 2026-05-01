@@ -13,22 +13,22 @@ var splitArray = function(nums, k) {
 
     const check = (mid)=>{
         //let flag =0
-        console.log(mid + "로 검사중")
+        //console.log(mid + "로 검사중")
         let sum =0
         let cnt = 1
         for(let i=0; i<len; i++){
-            console.log(sum+ " 더할거임" )
+            //console.log(sum+ " 더할거임" )
             if(sum + nums[i] > mid){
                 //flag = i
                 sum = nums[i]
                 cnt ++
-                console.log(i+" 나눴음")
+                //console.log(i+" 나눴음")
             }else{
                 sum += nums[i]
             }
             console.log(sum)
         }
-        console.log("-----------")
+        //console.log("-----------")
 
         return (cnt <=k)
     }
