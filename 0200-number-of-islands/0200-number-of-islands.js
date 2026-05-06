@@ -1,43 +1,53 @@
-const numIslands = (grid) => {
-    const row_len = grid.length;
-    const col_len = grid[0].length;
-    const visited = Array(row_len).fill().map(() => Array(col_len).fill(false));
-    let number_of_islands = 0;
+/**
+ * @param {character[][]} grid
+ * @return {number}
+ */
+var numIslands = function(grid) {
+    const grid_row = grid.length
+    const grid_col = grid[0].length
+    const visited = Array.from({length : grid_row }, ()=> Array(grid_col).fill(false))
+    let cnt = 0
 
-    for (let i = 0; i < row_len; i++) {
-        for (let j = 0; j < col_len; j++) {
-            if (grid[i][j] === "1" && !visited[i][j]) { //방문하지 않은 섬이면
-                bfs(i, j, grid, visited); //인접 섬 찾기
-                number_of_islands++;
+    const isValid = (nr, nc) => {
+        if(nr>=0 && nr<grid_row && nc>=0 && nc < grid_col && grid[nr][nc] === "1" && !visited[nr][nc]){
+            return true
+        }else{
+            return false
+        }
+    }
+
+    const bfs = (row,col) => {
+        const queue = [[row,col]]
+        const dr = [-1,1,0,0]
+        const dc = [0,0, -1,1] // t, b, l, r
+        visited[row][col] = true
+        while (queue.length > 0){
+            const [r,c] = queue.shift()
+            for(let i =0; i<4; i++){
+                const nr = r+dr[i]
+                const nc = c+dc[i]
+
+                if (isValid(nr,nc)){
+                    queue.push([nr,nc])
+                    visited[nr][nc] = true
+                }
+            }
+
+        }
+    }
+
+
+
+    for(let row =0; row<grid_row; row ++){
+        for(let col=0; col<grid_col; col ++){
+            if (grid[row][col] === "1" && visited[row][col] !== true){
+                cnt ++
+                bfs(row,col)
             }
         }
     }
-    return number_of_islands;
-}
 
-const isInRange = (r, c, row_len, col_len) => {
-    return r >= 0 && r < row_len && c >= 0 && c < col_len;
-}
 
-const bfs = (r, c, grid, visited) => {
-    const row_len = grid.length;
-    const col_len = grid[0].length;
-    const delta = [[-1,0],[1,0],[0,-1],[0,1]];
-    const queue = [[r, c]];
-    let head = 0;
-    visited[r][c] = true;
-
-    while (head < queue.length) {
-        const [cur_r, cur_c] = queue[head++];
-        delta.forEach(([dr, dc]) => {
-            const next_r = cur_r + dr;
-            const next_c = cur_c + dc;
-            if (isInRange(next_r, next_c, row_len, col_len)) {
-                if (grid[next_r][next_c] === "1" && !visited[next_r][next_c]) {
-                    visited[next_r][next_c] = true;
-                    queue.push([next_r, next_c]);
-                }
-            }
-        });
-    }
-}
+    //console.log(visit)
+    return cnt
+};
