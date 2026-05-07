@@ -19,6 +19,7 @@ Java Scripit를 사용하며, 코드 트리 사이트의 문제를 풀이합니�
 | [0739-daily-temperatures](https://github.com/snowari/algorithm_sol/tree/master/0739-daily-temperatures) |
 | [0746-min-cost-climbing-stairs](https://github.com/snowari/algorithm_sol/tree/master/0746-min-cost-climbing-stairs) |
 | [0875-koko-eating-bananas](https://github.com/snowari/algorithm_sol/tree/master/0875-koko-eating-bananas) |
+| [0994-rotting-oranges](https://github.com/snowari/algorithm_sol/tree/master/0994-rotting-oranges) |
 | [1011-capacity-to-ship-packages-within-d-days](https://github.com/snowari/algorithm_sol/tree/master/1011-capacity-to-ship-packages-within-d-days) |
 | [1091-shortest-path-in-binary-matrix](https://github.com/snowari/algorithm_sol/tree/master/1091-shortest-path-in-binary-matrix) |
 | [1472-design-browser-history](https://github.com/snowari/algorithm_sol/tree/master/1472-design-browser-history) |
@@ -89,11 +90,13 @@ Java Scripit를 사용하며, 코드 트리 사이트의 문제를 풀이합니�
 | [0200-number-of-islands](https://github.com/snowari/algorithm_sol/tree/master/0200-number-of-islands) |
 | [0743-network-delay-time](https://github.com/snowari/algorithm_sol/tree/master/0743-network-delay-time) |
 | [0841-keys-and-rooms](https://github.com/snowari/algorithm_sol/tree/master/0841-keys-and-rooms) |
+| [0994-rotting-oranges](https://github.com/snowari/algorithm_sol/tree/master/0994-rotting-oranges) |
 | [1091-shortest-path-in-binary-matrix](https://github.com/snowari/algorithm_sol/tree/master/1091-shortest-path-in-binary-matrix) |
 ## Matrix
 |  |
 | ------- |
 | [0200-number-of-islands](https://github.com/snowari/algorithm_sol/tree/master/0200-number-of-islands) |
+| [0994-rotting-oranges](https://github.com/snowari/algorithm_sol/tree/master/0994-rotting-oranges) |
 | [1091-shortest-path-in-binary-matrix](https://github.com/snowari/algorithm_sol/tree/master/1091-shortest-path-in-binary-matrix) |
 ## Graph Theory
 |  |
